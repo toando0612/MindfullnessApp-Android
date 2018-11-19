@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddActivity">
+
+    <TextView
+        android:id="@+id/tvname"
+        android:layout_width="79dp"
+        android:layout_height="39dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="112dp"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvname"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginEnd="76dp"
+        android:layout_toEndOf="@+id/tvname"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tvduration"
+        android:layout_width="79dp"
+        android:layout_height="39dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="185dp"
+        android:text="Duration" />
+
+    <EditText
+        android:id="@+id/duration"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tvduration"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="76dp"
+        android:layout_toEndOf="@+id/tvduration"
+        android:inputType="number"
+        android:text="" />
+
+    <Button
+        android:id="@+id/confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="148dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="178dp"
+        android:onClick="onConFirmClick"
+        android:text="Confirm" />
+
+
+</RelativeLayout>

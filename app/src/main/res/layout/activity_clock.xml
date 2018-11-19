@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ClockActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/clock"
+        android:layout_width="match_parent"
+        android:layout_height="227dp"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tvclock"
+            android:layout_width="219dp"
+            android:layout_height="85dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:text="00:00:00:00"
+            android:textColor="#009688"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvclock"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="56dp"
+            android:layout_marginTop="30dp"
+            android:onClick="onStartClick"
+            android:text="Start" />
+
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/start"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="56dp"
+            android:onClick="onStopClick"
+            android:text="Stop" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/infoclock"
+        android:layout_width="match_parent"
+        android:layout_height="288dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="62dp"
+            android:layout_marginEnd="267dp"
+            android:textStyle="bold"
+            android:text="DAY" />
+
+        <TextView
+            android:id="@+id/week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="115dp"
+            android:layout_marginEnd="267dp"
+            android:textStyle="bold"
+            android:text="WEEK" />
+
+        <TextView
+            android:id="@+id/month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="59dp"
+            android:layout_marginEnd="267dp"
+            android:layout_marginBottom="96dp"
+            android:textStyle="bold"
+            android:text="MONTH" />
+
+        <TextView
+            android:id="@+id/daytime"
+            android:layout_width="205dp"
+            android:layout_height="36dp"
+            android:layout_alignBaseline="@+id/day"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="58dp"
+            android:layout_marginEnd="27dp"
+            android:text="0:0:0"
+            android:textColor="#ff3300"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/weektime"
+            android:layout_width="205dp"
+            android:layout_height="36dp"
+            android:layout_alignBaseline="@+id/week"
+            android:layout_alignStart="@+id/daytime"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="0dp"
+            android:text="0:0:0"
+            android:layout_marginEnd="25dp"
+            android:textColor="#ff3300"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/monthtime"
+            android:layout_width="205dp"
+            android:layout_height="36dp"
+            android:layout_alignBaseline="@+id/month"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="0:0:0"
+            android:textColor="#ff3300"
+            android:textSize="25dp"
+            android:layout_marginEnd="25dp"
+            android:textStyle="bold"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
