@@ -32,9 +32,6 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         readTask();
-
-
-
     }
 
 
@@ -55,12 +52,6 @@ public class ListActivity extends AppCompatActivity {
             @Override
             public void onChanged(@Nullable List<Task> tasks) {
                 listTask = tasks;
-
-//                for (Task task : tasks
-//                        ) {
-//                    listTask.add(task);
-//
-//                }
                 ArrayAdapter adapter = new ArrayAdapter(ListActivity.this, android.R.layout.simple_list_item_2, android.R.id.text1, listTask) {
                     @Override
                     public View getView(int position, View convertView, ViewGroup parent) {
@@ -76,11 +67,9 @@ public class ListActivity extends AppCompatActivity {
                 };
                 ListView listView= findViewById(R.id.listview);
                 listView.setAdapter(adapter);
-
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(ListActivity.this, "You have clicked "+item, Toast.LENGTH_SHORT).show();
                         Task edit =  listTask.get(position);
                         String string = edit.getStatus();
                         if (string.equals("NEW")) {
@@ -93,8 +82,6 @@ public class ListActivity extends AppCompatActivity {
                         taskRepository.updateTask(edit);
                         recreate();
                         Toast.makeText(ListActivity.this,"You have changed the Status",Toast.LENGTH_SHORT).show();
-
-
                     }
                 });
             }

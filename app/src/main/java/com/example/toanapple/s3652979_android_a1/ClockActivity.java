@@ -48,37 +48,6 @@ public class ClockActivity extends AppCompatActivity {
         clockRepository = new ClockRepository(getApplicationContext());
 
         readAndUpdateAndShow();  //read from database and show time in the Day,Week,Month Recording
-
-
-//        final Clock clock = new Clock(19,17,10);
-//        List<Clock> clockList = new ArrayList<>();
-
-
-
-
-
-
-
-
-
-//        Times time = new Times();
-//        time.set_day(day);
-//        time.set_week(week);
-//        time.set_month(month);
-//
-//        myDBTools.addTime(time);
-
-//        int month1 = myDBTools.readDatabase("_month");
-//        int week1 = myDBTools.readDatabase("_week");
-//        int day1 = myDBTools.readDatabase("_day");
-
-//        System.out.println(month1 +"//" +week1+"//" + day1);
-
-
-//        System.out.println(week);
-//        System.out.println(month);
-//        System.out.println(currentCalendar.get(Calendar.WEEK_OF_MONTH));
-
     }
 
     public void onStartClick(View view) {                   //Click Start Button
@@ -122,9 +91,6 @@ public class ClockActivity extends AppCompatActivity {
         tvclock.setText("00:00:00:00");
         start.setEnabled(true);
         stop.setEnabled(false);
-
-
-
     }
 
 
@@ -132,66 +98,52 @@ public class ClockActivity extends AppCompatActivity {
         @Override
         public void run() {
             mlsecond = SystemClock.uptimeMillis() - starttime;
-
-
             dupdatetime = dtimebuff + mlsecond;
             wupdatetime = wtimebuff + mlsecond;
             mupdatetime = mtimebuff + mlsecond;
 
 
             seconds = (int) (mlsecond  / 1000);
-
             hours = minutes / 60;
-
             minutes = minutes % 60;
-
             minutes = seconds / 60;
-
             seconds = seconds % 60;
-
             miliseconds = (int) (mlsecond % 1000);
-
             tvclock.setText(hours + ":"
                     + minutes + ":"
                     + String.format("%02d", seconds) + ":"
                     + String.format("%03d", miliseconds)
             );
-
-
+            //
             dseconds = (int) (dupdatetime / 1000);
             dhours = dminutes / 60;
             dminutes = dminutes % 60;
             dminutes = dseconds / 60;
             dseconds = dseconds % 60;
-
-
             daytime.setText(dhours + ":"
                     + dminutes + ":"
                     + String.format("%02d", dseconds)
             );
-
+            //
             wseconds = (int) (wupdatetime / 1000);
             whours = wminutes / 60;
             wminutes = wminutes % 60;
             wminutes = wseconds / 60;
             wseconds = wseconds % 60;
-
             weektime.setText(whours + ":"
                     + wminutes + ":"
                     + String.format("%02d", wseconds)
             );
-
+            //
             mseconds = (int) (mupdatetime / 1000);
             mhours = mminutes / 60;
             mminutes = mminutes % 60;
             mminutes = mseconds / 60;
             mseconds = mseconds % 60;
-
             monthtime.setText(mhours + ":"
                     + mminutes + ":"
                     + String.format("%02d", mseconds)
             );
-
 
             handler.postDelayed(this, 0);
 
@@ -204,10 +156,8 @@ public class ClockActivity extends AppCompatActivity {
         clockRepository.getAllClock().observe(this, new Observer<List<Clock>>() {
             @Override
             public void onChanged(@Nullable List<Clock> clocks) {
-
                 for (Clock clock : clocks
                         ) {
-//                    System.out.println(clock.getDay());
                     daycheck = clock.getDay();
                     weekcheck = clock.getWeek();
                     monthcheck = clock.getMonth();
@@ -216,13 +166,10 @@ public class ClockActivity extends AppCompatActivity {
                     mtimebuff = clock.getMonthtime();
                 }
 
-                //catch time history to show
-
                 Calendar currentCalendar = Calendar.getInstance();
                 day = currentCalendar.get(Calendar.DAY_OF_YEAR);
                 week = currentCalendar.get(Calendar.WEEK_OF_YEAR);
                 month = currentCalendar.get(Calendar.MONTH);
-
                 if (month != monthcheck){
                     dtimebuff = wtimebuff = mtimebuff = 0L;
                 }else if (week != weekcheck){
@@ -235,38 +182,32 @@ public class ClockActivity extends AppCompatActivity {
                 dseconds = (int) (dtimebuff / 1000);
                 dminutes = dseconds / 60;
                 dhours = dminutes / 60;
-
                 dseconds = dseconds % 60;
                 dminutes = dminutes % 60;
-
-
                 daytime.setText(dhours + ":"
                         + dminutes + ":"
                         + String.format("%02d", dseconds)
                 );
-
+                //
                 wseconds = (int) (wtimebuff / 1000);
                 whours = wminutes / 60;
                 wminutes = wminutes % 60;
                 wminutes = wseconds / 60;
                 wseconds = wseconds % 60;
-
                 weektime.setText(whours + ":"
                         + wminutes + ":"
                         + String.format("%02d", wseconds)
                 );
-
+                //
                 mseconds = (int) (mtimebuff / 1000);
                 mhours = mminutes / 60;
                 mminutes = mminutes % 60;
                 mminutes = mseconds / 60;
                 mseconds = mseconds % 60;
-
                 monthtime.setText(mhours + ":"
                         + mminutes + ":"
                         + String.format("%02d", mseconds)
                 );
-
             }
         });
 
